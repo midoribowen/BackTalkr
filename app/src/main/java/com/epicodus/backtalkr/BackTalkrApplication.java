@@ -4,7 +4,10 @@ import android.app.Application;
 
 import com.firebase.client.Firebase;
 
-public class BackTalkrApplication extends Application {
+/**
+ * Created by Guest on 3/30/16.
+ */
+public class BackTalkrApplication extends Application{
     private static BackTalkrApplication app;
     private Firebase mFirebaseRef;
 

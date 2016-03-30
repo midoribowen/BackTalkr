@@ -2,4 +2,7 @@
     <string name="app_name">BackTalkr</string>
 
     <string name="firebase_url">https://backtalkr.firebaseio.com/</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello Message Fragment</string>
 </resources>

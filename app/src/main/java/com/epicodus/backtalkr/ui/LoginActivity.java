@@ -1,4 +1,4 @@
-package com.epicodus.backtalkr;
+package com.epicodus.backtalkr.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.epicodus.backtalkr.BackTalkrApplication;
+import com.epicodus.backtalkr.R;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
