@@ -10,15 +10,12 @@ import com.epicodus.backtalkr.R;
 import com.epicodus.backtalkr.models.Message;
 import com.firebase.client.Firebase;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by Guest on 3/30/16.
- */
+
 public class MessageViewHolder extends RecyclerView.ViewHolder {
     @Bind(R.id.messageTextView)
     TextView mMessageTextView;

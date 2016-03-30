@@ -10,11 +10,11 @@ import org.parceler.Parcel;
 public class Message {
     String content;
 
-    private Message() {
+    public Message() {
 
     }
 
-    private Message(String content) {
+    public Message(String content) {
         this.content = content;
     }
 

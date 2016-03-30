@@ -9,10 +9,9 @@ import com.epicodus.backtalkr.models.Message;
 import com.epicodus.backtalkr.util.FirebaseRecyclerAdapter;
 import com.firebase.client.Query;
 
-/**
- * Created by Guest on 3/30/16.
- */
+
 public class FirebaseMessageAdapter extends FirebaseRecyclerAdapter<MessageViewHolder, Message>{
+
     public FirebaseMessageAdapter(Query query, Class<Message> itemClass) {
         super(query, itemClass);
     }
@@ -26,7 +25,7 @@ public class FirebaseMessageAdapter extends FirebaseRecyclerAdapter<MessageViewH
 
     @Override
     public void onBindViewHolder(MessageViewHolder holder, int position) {
-
+        holder.bindMessage(getItem(position));
     }
 
     @Override

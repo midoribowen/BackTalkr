@@ -11,9 +11,7 @@ import com.epicodus.backtalkr.models.Message;
 
 import java.util.ArrayList;
 
-/**
- * Created by Guest on 3/30/16.
- */
+
 public class MessageListAdapter extends RecyclerView.Adapter<MessageViewHolder> {
     private ArrayList<Message> mMessages = new ArrayList<>();
     private Context mContext;
