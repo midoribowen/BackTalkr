@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.backtalkr.LoginActivity"
+    android:background="@color/colorPrimary">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BackTalkr"
+        android:id="@+id/textView"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="55dp"
+        android:paddingBottom="55dp"
+        android:background="@color/colorPrimaryLight"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailEditText"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:textColorHint="@color/colorIcons"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordEditText"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:hint="Password"
+            android:textColorHint="@color/colorIcons"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordLoginButton"
+            android:text="Log In"
+            android:textColor="@color/colorIcons"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerButton"
+            android:text="Register"
+            android:textColor="@color/colorIcons"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+</RelativeLayout>

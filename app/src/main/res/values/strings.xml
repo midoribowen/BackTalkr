@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BackTalkr</string>
+
+    <string name="firebase_url">https://backtalkr.firebaseio.com/</string>
+</resources>
