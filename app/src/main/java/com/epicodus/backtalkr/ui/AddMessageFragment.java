@@ -25,10 +25,9 @@ import butterknife.ButterKnife;
 
 public class AddMessageFragment extends DialogFragment implements View.OnClickListener {
     private Firebase mFirebaseRef;
+    private String messageId;
     @Bind(R.id.contentEditText) EditText mContentEditText;
     @Bind(R.id.addNewMessageButton) Button mAddMessageButton;
-    private String mCurrentUserId;
-    //put binders here!
 
 
     public AddMessageFragment() {
@@ -46,12 +45,12 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_add_message, container, false);
         ButterKnife.bind(this, view);
 
+        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("messages/").push();
 
-        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef();
-        Log.d("Current User ID:", mFirebaseRef.getAuth().getUid().toString());
+//        Bundle bundle = getArguments();
+//        messageId = bundle.getString("messageId");
 
         mAddMessageButton.setOnClickListener(this);
-        mCurrentUserId = mFirebaseRef.getAuth().getUid();
         return view;
     }
 
@@ -71,18 +70,8 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
     }
 
     private void createMessage(String content) {
-        Message message = new Message(content);
-        message.setUserId(mFirebaseRef.getAuth().getUid());
-
-        mFirebaseRef.child("messages/")
-                .child(mCurrentUserId.toString())
-                .push()
-                .setValue(message);
-
-//        Firebase userRef = mFirebaseRef.child(mCurrentUserId.toString());
-//        Firebase messageRef = userRef.child("messages/").push();
-//        messageRef.setValue(message);
-        mContentEditText.setText("");
+        Message message = new Message(mFirebaseRef.getKey().toString(), content);
+        mFirebaseRef.setValue(message);
     }
 
 }

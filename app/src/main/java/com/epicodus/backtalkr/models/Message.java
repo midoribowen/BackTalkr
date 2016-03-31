@@ -10,23 +10,25 @@ import java.util.UUID;
 
 @Parcel
 public class Message {
+    String messageId;
     String content;
-    UUID userId;
+
     public Message() {
 
     }
 
-    public Message(String content) {
+    public Message(String messageId, String content) {
+        this.messageId = messageId;
         this.content = content;
+    }
+
+    public String getMessageId() {
+        return messageId;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setUserId(String userId) {
-        String userIdString = userId;
-        UUID userIdUUID = UUID.fromString(userIdString);
-        this.userId = userIdUUID;
-    }
+
 }

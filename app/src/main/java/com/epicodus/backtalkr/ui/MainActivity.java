@@ -63,14 +63,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void setupFirebaseQuery() {
-        mQuery = mFirebaseRef.child("messages/");
-    }
-
     private void launchAddMessageFragment() {
         FragmentManager fm = getSupportFragmentManager();
         AddMessageFragment addMessage = AddMessageFragment.newInstance();
         addMessage.show(fm, "fragment_add_message");
+    }
+
+    private void setupFirebaseQuery() {
+        Firebase.setAndroidContext(this);
+        String location = mFirebaseRef.child("messages/").toString();
+        mQuery = new Firebase(location);
+    }
+
+    private void setUpRecyclerView() {
+        mAdapter = new FirebaseMessageAdapter(mQuery, Message.class);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     private void checkForAuthenticatedUser() {
@@ -94,11 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(loginIntent);
     }
 
-    private void setUpRecyclerView() {
-        mAdapter = new FirebaseMessageAdapter(mQuery, Message.class);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mAdapter);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
