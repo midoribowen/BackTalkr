@@ -2,12 +2,10 @@ package com.epicodus.backtalkr.ui;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +17,6 @@ import android.widget.TextView;
 import com.epicodus.backtalkr.BackTalkrApplication;
 import com.epicodus.backtalkr.R;
 import com.epicodus.backtalkr.models.Message;
-import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 
 import butterknife.Bind;
@@ -56,9 +53,6 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
         ButterKnife.bind(this, view);
 
         mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("messages/").push();
-
-//        Bundle bundle = getArguments();
-//        messageId = bundle.getString("messageId");
 
 
         mSharedPreferences = this.getContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
