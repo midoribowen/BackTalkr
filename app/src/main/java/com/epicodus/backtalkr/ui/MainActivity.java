@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.epicodus.backtalkr.BackTalkrApplication;
 import com.epicodus.backtalkr.R;
-import com.epicodus.backtalkr.adapters.FirebaseMessageAdapter;
-import com.epicodus.backtalkr.models.Message;
+import com.epicodus.backtalkr.adapters.FirebaseCategoryAdapter;
+import com.epicodus.backtalkr.models.Category;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.Query;
@@ -28,11 +28,11 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Query mQuery;
     private Firebase mFirebaseRef;
-    private FirebaseMessageAdapter mAdapter;
+    private FirebaseCategoryAdapter mAdapter;
     private String mCurrentUserId;
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-    @Bind(R.id.addMessageButton) FloatingActionButton mAddMessageButton;
+    @Bind(R.id.addCategoryButton) FloatingActionButton mAddCategoryButton;
 
 
     @Override
@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setupFirebaseQuery();
         setUpRecyclerView();
 
-
-        mAddMessageButton.setOnClickListener(this);
+        mAddCategoryButton.setOnClickListener(this);
     }
 
 
@@ -56,27 +55,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.addMessageButton:
-                routeUnauthenticatedUserFromNewMessage();
-                launchAddMessageFragment();
+            case R.id.addCategoryButton:
+                routeUnauthenticatedUserFromNewCategory();
+                launchAddCategoryFragment();
                 break;
         }
     }
 
-    private void launchAddMessageFragment() {
+    private void launchAddCategoryFragment() {
         FragmentManager fm = getSupportFragmentManager();
-        AddMessageFragment addMessage = AddMessageFragment.newInstance();
-        addMessage.show(fm, "fragment_add_message");
+        AddCategoryFragment addCategory = AddCategoryFragment.newInstance();
+        addCategory.show(fm, "fragment_add_category");
     }
 
     private void setupFirebaseQuery() {
         Firebase.setAndroidContext(this);
-        String location = mFirebaseRef.child("messages/").toString();
+        String location = mFirebaseRef.child("categories/").toString();
         mQuery = new Firebase(location);
     }
 
     private void setUpRecyclerView() {
-        mAdapter = new FirebaseMessageAdapter(mQuery, Message.class);
+        mAdapter = new FirebaseCategoryAdapter(mQuery, Category.class);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
     }
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void routeUnauthenticatedUserFromNewMessage() {
+    private void routeUnauthenticatedUserFromNewCategory() {
         AuthData authData = mFirebaseRef.getAuth();
         if (authData == null) {
             goToLoginActivity();
