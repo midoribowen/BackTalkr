@@ -72,10 +72,16 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
 
     private void createMessage(String content) {
         Message message = new Message(content);
+        message.setUserId(mFirebaseRef.getAuth().getUid());
 
-        Firebase userRef = mFirebaseRef.child(mCurrentUserId.toString());
-        Firebase messageRef = userRef.push();
-        messageRef.setValue(message);
+        mFirebaseRef.child("messages/")
+                .child(mCurrentUserId.toString())
+                .push()
+                .setValue(message);
+
+//        Firebase userRef = mFirebaseRef.child(mCurrentUserId.toString());
+//        Firebase messageRef = userRef.child("messages/").push();
+//        messageRef.setValue(message);
         mContentEditText.setText("");
     }
 

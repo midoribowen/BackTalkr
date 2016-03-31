@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef();
 
         checkForAuthenticatedUser();
-//        setUpRecyclerView();
+        setupFirebaseQuery();
+        setUpRecyclerView();
+
 
         mAddMessageButton.setOnClickListener(this);
     }
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 launchAddMessageFragment();
                 break;
         }
+    }
+
+    private void setupFirebaseQuery() {
+        mQuery = mFirebaseRef.child("messages/");
     }
 
     private void launchAddMessageFragment() {

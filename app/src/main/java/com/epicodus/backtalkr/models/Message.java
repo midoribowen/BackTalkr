@@ -2,6 +2,8 @@ package com.epicodus.backtalkr.models;
 
 import org.parceler.Parcel;
 
+import java.util.UUID;
+
 /**
  * Created by Guest on 3/30/16.
  */
@@ -9,7 +11,7 @@ import org.parceler.Parcel;
 @Parcel
 public class Message {
     String content;
-
+    UUID userId;
     public Message() {
 
     }
@@ -20,5 +22,11 @@ public class Message {
 
     public String getContent() {
         return content;
+    }
+
+    public void setUserId(String userId) {
+        String userIdString = userId;
+        UUID userIdUUID = UUID.fromString(userIdString);
+        this.userId = userIdUUID;
     }
 }
