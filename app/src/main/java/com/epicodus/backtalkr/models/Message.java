@@ -12,14 +12,16 @@ import java.util.UUID;
 public class Message {
     String messageId;
     String content;
+    String username;
 
     public Message() {
 
     }
 
-    public Message(String messageId, String content) {
+    public Message(String messageId, String content, String username) {
         this.messageId = messageId;
         this.content = content;
+        this.username = username;
     }
 
     public String getMessageId() {
@@ -28,6 +30,10 @@ public class Message {
 
     public String getContent() {
         return content;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
 

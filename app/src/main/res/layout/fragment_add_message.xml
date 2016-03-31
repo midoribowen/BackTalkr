@@ -20,18 +20,27 @@
         android:textColor="@color/colorPrimaryText"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Username"
+        android:id="@+id/usernameLabel"
+        android:layout_below="@+id/newMessageHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/contentEditText"
-        android:layout_marginTop="101dp"
-        android:layout_below="@+id/newMessageHeader"
+        android:id="@+id/usernameEditText"
+        android:layout_below="@+id/usernameLabel"
+        android:layout_marginBottom="29dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Username" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,19 +48,34 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Message Text"
         android:id="@+id/messageTextLabel"
-        android:layout_marginTop="52dp"
-        android:layout_below="@+id/newMessageHeader"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/usernameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/contentEditText"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/messageTextLabel"
+        android:hint="Message content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add New Message"
         android:id="@+id/addNewMessageButton"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/contentEditText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

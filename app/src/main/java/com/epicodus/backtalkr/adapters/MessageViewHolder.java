@@ -35,5 +35,6 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
     public void bindMessage(Message message) {
         mMessageTextView.setText(message.getContent());
+        mAuthorTextView.setText(message.getUsername());
     }
 }
