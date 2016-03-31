@@ -34,6 +34,7 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
     @Bind(R.id.usernameEditText) EditText mUsernameEditText;
     @Bind(R.id.usernameLabel) TextView mUsernameLabel;
     private Context mContext;
+    private String categoryId;
 
 
     public AddMessageFragment() {
@@ -52,7 +53,11 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_add_message, container, false);
         ButterKnife.bind(this, view);
 
-        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("messages/").push();
+        Bundle bundle = getArguments();
+        categoryId = bundle.getString("categoryId");
+
+
+        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("categories/" + categoryId + "/messages").push();
 
 
         mSharedPreferences = this.getContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -95,7 +100,7 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
     }
 
     private void createMessage(String content, String username) {
-        Message message = new Message(mFirebaseRef.getKey().toString(), content, username);
+        Message message = new Message(mFirebaseRef.getKey().toString(), content, username, categoryId);
         mFirebaseRef.setValue(message);
     }
 

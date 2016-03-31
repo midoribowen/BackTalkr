@@ -13,15 +13,17 @@ public class Message {
     String messageId;
     String content;
     String username;
+    String categoryId;
 
     public Message() {
 
     }
 
-    public Message(String messageId, String content, String username) {
+    public Message(String messageId, String content, String username, String categoryId) {
         this.messageId = messageId;
         this.content = content;
         this.username = username;
+        this.categoryId = categoryId;
     }
 
     public String getMessageId() {
@@ -34,6 +36,10 @@ public class Message {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
     }
 
 
