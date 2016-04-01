@@ -49,7 +49,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         category = Parcels.unwrap(bundle.getParcelable("chosenCategory"));
-        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("categories/" + category.getCategoryId());
+        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef();
 
         checkForAuthenticatedUser();
         setupFirebaseQuery();
@@ -85,8 +85,8 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
     private void setupFirebaseQuery() {
         Firebase.setAndroidContext(this);
-//        set up location so that its route is flat vs. nested -- ("messages/" + category.getCategoryId()).toString();
-        String location = mFirebaseRef.child("/messages").toString();
+
+        String location = mFirebaseRef.child("messages/" + category.getCategoryId()).toString();
         mQuery = new Firebase(location);
     }
 

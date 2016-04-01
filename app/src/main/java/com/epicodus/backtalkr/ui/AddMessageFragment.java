@@ -57,7 +57,7 @@ public class AddMessageFragment extends DialogFragment implements View.OnClickLi
         categoryId = bundle.getString("categoryId");
 
 
-        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("categories/" + categoryId + "/messages").push();
+        mFirebaseRef = BackTalkrApplication.getAppInstance().getFirebaseRef().child("messages/" + categoryId).push();
 
 
         mSharedPreferences = this.getContext().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
