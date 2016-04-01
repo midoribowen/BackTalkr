@@ -85,6 +85,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
 
     private void setupFirebaseQuery() {
         Firebase.setAndroidContext(this);
+//        set up location so that its route is flat vs. nested -- ("messages/" + category.getCategoryId()).toString();
         String location = mFirebaseRef.child("/messages").toString();
         mQuery = new Firebase(location);
     }
